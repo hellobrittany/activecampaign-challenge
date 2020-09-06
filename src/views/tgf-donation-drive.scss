@@ -1,0 +1,30 @@
+@import '../styles/_variables.scss';
+
+.donor-count {
+  font-weight: 900;
+}
+
+.pb-container {
+  margin-top: -4px;
+}
+
+progress[value] {
+  width: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+progress[value]::-webkit-progress-bar {
+  height: 16px;
+  border-top-left-radius: $border-radius;
+  border-top-right-radius: $border-radius;
+  background-color: $teal-light;
+
+}  
+
+progress[value]::-webkit-progress-value {
+  height: 16px;
+  border-top-left-radius: $border-radius;
+  border-top-right-radius: $border-radius;
+  background-color: $teal-dark;
+}

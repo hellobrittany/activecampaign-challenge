@@ -1,0 +1,20 @@
+@import './_variables.scss';
+
+body {
+  margin: 100px;
+  font-family: $font-family-body;
+  font-size: $font-size-body;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: $app-background;
+}
+
+h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: $font-size-h2;
+
+}
+
+.strong {
+  font-weight: 900;
+}

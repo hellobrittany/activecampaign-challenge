@@ -1,0 +1,31 @@
+@import '../../styles/_variables.scss';
+
+form {
+  display: flex;
+  width: 100%;
+}
+
+.number-input-wrapper {
+  font-size: $font-size-body;
+  position: relative;
+  width: calc(100% - 104px);
+
+  &:after {
+    content: "$";
+    position: absolute;
+    top: 12px;
+    left: 16px;
+    color: #B3B4C0;
+  }
+}
+
+input {
+  height: 48px;
+  border: 1px solid $blue-dark;
+  border-radius: $border-radius;
+  padding: 0 8px 0 28px;
+  font-size: $font-size-body;
+  line-height: 28px;
+  color: $gray-80;
+  width: calc(100% - 38px);
+}
