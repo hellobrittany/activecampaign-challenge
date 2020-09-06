@@ -15,10 +15,20 @@ const DonationForm = (props) => {
 
   return (
     <form>
-      <div className="number-input-wrapper">
-        <input type="number" min="5" value={props.value} onChange={handleChange} />
+      <div className="input-button-row">
+        <div className="number-input-wrapper">
+          <input
+            type="number"
+            min="5"
+            value={props.value}
+            onChange={handleChange}
+            className={ props.mockError ? 'error' : '' }
+          />
+        </div>
+        
+        <Button value="Give Now" onClick={handleSubmit} disabled={ props.mockError} />
       </div>
-      <Button value="Give Now" onClick={handleSubmit} />
+      
     </form>
   )
 }

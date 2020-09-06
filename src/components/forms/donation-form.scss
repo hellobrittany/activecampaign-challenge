@@ -1,6 +1,10 @@
 @import '../../styles/_variables.scss';
 
 form {
+  width: 100%;
+}
+
+.input-button-row {
   display: flex;
   width: 100%;
 }
@@ -28,4 +32,26 @@ input {
   line-height: 28px;
   color: $gray-80;
   width: calc(100% - 38px);
+
+  &.error {
+    border: 1px solid $alert-red;
+    outline: $alert-red auto 1px;
+    color: $alert-red;
+  }
+}
+
+.error-msg {
+  padding: 4px 0;
+  color: $alert-red;
+  font-size: 14px;
+}
+
+.mock-error {
+  deep {
+    input {
+      border: 1px solid $alert-red !important;
+      color: $alert-red !important;
+    }
+  }
+  
 }

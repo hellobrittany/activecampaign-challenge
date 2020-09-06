@@ -10,9 +10,18 @@ const DonationDrive = () => {
   const [totalDonations, setTotalDonations] = useState(0)
   const [dollarsRemaining, setDollarsRemaining] = useState(fundraiserGoal)
   const [pbTooltipText, setPbTooltipText] = useState('$5000 still needed to fund this project')
+  
+  // TODO: Remove mock and implement form validations properly
+  const mockValue = 0;
+  const [mockError, setMockError] = useState(false)
 
   const handleChange = (newValue) => {
     setValue(newValue)
+    if ( newValue < 5 ) {
+      setMockError(true)
+    } else {
+      setMockError(false)
+    }
   }
 
   const handleSubmit = () => {
@@ -30,27 +39,57 @@ const DonationDrive = () => {
   }
 
   return (
-    <Card>
-      <ProgressBar value={totalDonations} max={fundraiserGoal} dataTip={pbTooltipText}></ProgressBar>
 
-      <div className="container">
-        <h2 className="card-header">
-          Only 4 more days to fund this project
-        </h2>
+    <div className="flex-direction-column">
+      <Card>
+        <ProgressBar value={totalDonations} max={fundraiserGoal} dataTip={pbTooltipText}></ProgressBar>
 
-        <div className="card-content">
+        <div className="container">
+          <h2 className="card-header">
+            Only 4 more days to fund this project
+          </h2>
 
-          {/* TODO: Create dynamic text for on submit, joining other donors */}
-          <div>
-            Be the first to donate to this cause!
-          </div>
-        
-          <div className="input-button-row">
-            <DonationForm onChange={handleChange} onSubmit={handleSubmit} value={value}></DonationForm>
-          </div> 
-        </div>       
-      </div>
-    </Card>
+          <div className="card-content">
+
+            {/* TODO: Create dynamic text for on submit, joining other donors */}
+            <div>
+              Be the first to donate to this cause!
+            </div>
+          
+            <div className="input-button-row">
+              <DonationForm onChange={handleChange} onSubmit={handleSubmit} value={value}></DonationForm>
+            </div> 
+          </div>       
+        </div>
+      </Card>
+
+      <Card>
+        <ProgressBar value={totalDonations} max={fundraiserGoal} dataTip={pbTooltipText}></ProgressBar>
+
+        <div className="container">
+          <h2 className="card-header">
+            Only 4 more days to fund this project
+          </h2>
+
+          <div className="card-content">
+
+            {/* TODO: Create dynamic text for on submit, joining other donors */}
+            <div>
+              Join the <span className="strong">11</span> other donors who have already supported this project
+            </div>
+
+            <div className="input-button-row">
+              <DonationForm mockError={mockError} onChange={handleChange} onSubmit={handleSubmit} value={value}></DonationForm>
+            </div> 
+
+            { mockError &&
+              <div className="error-msg">Minimum donation is $5</div>
+            }
+
+          </div>       
+        </div>
+      </Card>
+    </div>
   )
 }
 
